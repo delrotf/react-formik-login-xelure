@@ -17,10 +17,10 @@ const LoginForm = props => {
   const validationSchema = Yup.object({
     firstname: Yup.string()
       .required("This field is required.")
-      .matches(/^[A-Za-z]+$/, "Numbers are not allowed."),
+      .matches(/^[A-Za-z ]+$/, "Numbers are not allowed."),
     lastname: Yup.string()
       .required("This field is required.")
-      .matches(/^[A-Za-z]+$/, "Numbers are not allowed."),
+      .matches(/^[A-Za-z ]+$/, "Numbers are not allowed."),
     email: Yup.string()
       .required("This field is required.")
       .email("Invalid email format."),
