@@ -3,16 +3,10 @@ import React, { useContext } from "react";
 import { Button, Form as BsForm } from "react-bootstrap";
 import * as Yup from "yup";
 import { Input } from "..";
-import {
-  LoginContext,
-  LoginContextProvider
-} from "../../context/login-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 const LoginForm = props => {
-  const { setFirstname, setAuthenticated } = useContext(LoginContext);
-
   const formValues = {
     firstname: "",
     lastname: "",
@@ -41,61 +35,59 @@ const LoginForm = props => {
   };
 
   return (
-    <LoginContextProvider>
-      <Formik
-        initialValues={formValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        {formik => (
-          <Form>
-            <div className="p-3">
-              <BsForm.Row>
-                <Input
-                  controlId="firstname"
-                  name="firstname"
-                  type="text"
-                  label="First name"
-                />
-                <Input
-                  controlId="lastname"
-                  name="lastname"
-                  type="text"
-                  label="Last name"
-                />
-              </BsForm.Row>
-              <BsForm.Row>
-                <Input
-                  controlId="email"
-                  name="email"
-                  type="email"
-                  label="Email address"
-                />
-                <Input
-                  controlId="password"
-                  name="password"
-                  type="password"
-                  label="Password"
-                />
-              </BsForm.Row>
-              <hr />
-              <div className="d-flex mb-3">
-                <Button
-                  variant="outline-light"
-                  className="flex-fill p-3"
-                  type="submit"
-                >
-                  <span className="mr-2">Claim you free trial</span>
-                  <FontAwesomeIcon icon={faCaretRight} />
-                </Button>
-              </div>
-              <span>You are agreeing to our </span>
-              <a href="#">Terms and Services</a>
+    <Formik
+      initialValues={formValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {formik => (
+        <Form>
+          <div className="p-3">
+            <BsForm.Row>
+              <Input
+                controlId="firstname"
+                name="firstname"
+                type="text"
+                label="First name"
+              />
+              <Input
+                controlId="lastname"
+                name="lastname"
+                type="text"
+                label="Last name"
+              />
+            </BsForm.Row>
+            <BsForm.Row>
+              <Input
+                controlId="email"
+                name="email"
+                type="email"
+                label="Email address"
+              />
+              <Input
+                controlId="password"
+                name="password"
+                type="password"
+                label="Password"
+              />
+            </BsForm.Row>
+            <hr />
+            <div className="d-flex mb-3">
+              <Button
+                variant="outline-light"
+                className="flex-fill p-3"
+                type="submit"
+              >
+                <span className="mr-2">Claim you free trial</span>
+                <FontAwesomeIcon icon={faCaretRight} />
+              </Button>
             </div>
-          </Form>
-        )}
-      </Formik>
-    </LoginContextProvider>
+            <span>You are agreeing to our </span>
+            <a href="#">Terms and Services</a>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
