@@ -26,7 +26,7 @@ const LoginForm = props => {
     email: Yup.string()
       .required("This field is required.")
       .email("Invalid email format."),
-      
+
     password: Yup.string()
       .required("This field is required.")
       .min(8, "At least ${min} characters.")
@@ -75,11 +75,12 @@ const LoginForm = props => {
               />
             </BsForm.Row>
             <hr />
-            <div className="d-flex mb-3">
+            <div className="mb-3">
               <Button
                 variant="outline-light"
-                className="flex-fill p-3"
+                className="p-3"
                 type="submit"
+                block
               >
                 <span className="mr-2">Claim you free trial</span>
                 <FontAwesomeIcon icon={faCaretRight} />
