@@ -82,7 +82,7 @@ const LoginForm = props => {
                 <FontAwesomeIcon icon={faCaretRight} />
               </Button>
             </div>
-            <span>You are agreeing to our </span>
+            <span className="text-muted">You are agreeing to our </span>
             <a href="#">Terms and Services</a>
           </div>
         </Form>
