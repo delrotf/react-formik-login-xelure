@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import React } from "react";
+import React from "react";
 import { Button, Form as BsForm } from "react-bootstrap";
 import * as Yup from "yup";
 import { Input } from "..";
@@ -18,12 +18,15 @@ const LoginForm = props => {
     firstname: Yup.string()
       .required("This field is required.")
       .matches(/^[A-Za-z ]+$/, "Numbers are not allowed."),
+
     lastname: Yup.string()
       .required("This field is required.")
       .matches(/^[A-Za-z ]+$/, "Numbers are not allowed."),
+
     email: Yup.string()
       .required("This field is required.")
       .email("Invalid email format."),
+      
     password: Yup.string()
       .required("This field is required.")
       .min(8, "At least ${min} characters.")
